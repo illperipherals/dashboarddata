@@ -1,0 +1,1506 @@
+{
+	"info": {
+		"_postman_id": "d7e4a6bd-9c5c-4e02-b891-7dd19ed67256",
+		"name": "CloudRF API",
+		"description": "The CloudRF API for radio planning lets you model radio coverage for any RF system between 20 and 100,000MHz.\nA CloudRF account and active plan are required to use the API. You can try it for free with the free plan.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API functions",
+			"item": [
+				{
+					"name": "Area Coverage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "21531",
+									"description": "Unique user identifier. Your CloudRF account id number.",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+									"description": "API key. Get yours at https://cloudrf.com/my%20balance",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "50.355108",
+									"description": "Latitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "lon",
+									"value": "-4.152938",
+									"description": "Longitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "txh",
+									"value": "8",
+									"description": "Transmitter height above ground",
+									"type": "text"
+								},
+								{
+									"key": "frq",
+									"value": "868",
+									"description": "Frequency in MHz. Allowed values: 20 to 100,000",
+									"type": "text"
+								},
+								{
+									"key": "rxh",
+									"value": "2",
+									"description": "Receiver height in metres",
+									"type": "text"
+								},
+								{
+									"key": "dis",
+									"value": "m",
+									"description": "Distance units. m = metres/km, f = feet/Mi",
+									"type": "text"
+								},
+								{
+									"key": "txw",
+									"value": "0.1",
+									"description": "Transmitter RF power in Watts",
+									"type": "text"
+								},
+								{
+									"key": "aeg",
+									"value": "2.14",
+									"description": "Transmitter antenna gain in dBi",
+									"type": "text"
+								},
+								{
+									"key": "rxg",
+									"value": "2.14",
+									"description": "Receiver antenna gain in dBi",
+									"type": "text"
+								},
+								{
+									"key": "pm",
+									"value": "1",
+									"description": "Propagation model. 1=Irregular Terrain Model, 2=Line of Sight (LOS), 3=Hata, 4=ECC33, 5=SUI Microwave, 6=COST231, 7=Free space path loss, 8=ITWOM, 9=Ericsson9999, 10=Plane earth loss, 11=Egli",
+									"type": "text"
+								},
+								{
+									"key": "pe",
+									"value": "1",
+									"description": "Propagation model subtype for Hata,ECC33,SUI,COST231,Ericsson. 1=Conservative, 2=Average or 3=Optimistic.",
+									"type": "text"
+								},
+								{
+									"key": "res",
+									"value": "30",
+									"description": "Resolution. 30=30m (Global), 90=90m (Global), 1=LIDAR 100%, 2=LIDAR 50% (LIDAR coverage permitting)",
+									"type": "text"
+								},
+								{
+									"key": "rad",
+									"value": "6",
+									"description": "Radius. Miles or KM depending on value of 'dis'",
+									"type": "text"
+								},
+								{
+									"key": "out",
+									"value": "2",
+									"description": "Measurement units. 1 = dB, 2=dBm (default), 3=dBuV/m, 4=BER",
+									"type": "text"
+								},
+								{
+									"key": "rxs",
+									"value": "-95",
+									"description": "Receiver sensitivity/threshold. Units determined according to 'out'",
+									"type": "text"
+								},
+								{
+									"key": "ant",
+									"value": "38",
+									"description": "Antenna code. Use 0 for a custom pattern with fields defined by hbw,vbw,fbr. See https://cloudrf.com/API/antennas/",
+									"type": "text"
+								},
+								{
+									"key": "azi",
+									"value": "0",
+									"description": "Antenna azimuth, grid north, degrees.",
+									"type": "text"
+								},
+								{
+									"key": "bw",
+									"value": "0.1",
+									"description": "Bandwidth in MHz. Will affect propagation.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ber",
+									"value": "0",
+									"description": "Bit Error Rate (For out=4 only)",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "blue",
+									"value": "-120",
+									"description": "Blue threshold. For use with custom RGB schema only.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "clh",
+									"value": "0",
+									"description": "Random clutter height. For use only with res=90 DEM",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "cli",
+									"value": "5",
+									"description": "Radio climate.       \n               1: Equatorial (Congo)\n               2: Continental Subtropical (Sudan)\n               3: Maritime Subtropical (West coast of Africa)\n               4: Desert (Sahara)\n               5: Continental Temperate\n               6: Maritime Temperate, over land (UK and west coasts of US & EU)\n               7: Maritime Temperate, over sea\n",
+									"type": "text"
+								},
+								{
+									"key": "cll",
+									"value": "0",
+									"description": "MODIS landcover toggle. For use only with res=90 DEM ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "fbr",
+									"value": "0",
+									"description": "Front to back ratio in dB. For use only with custom antenna code 0.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "file",
+									"value": "kmz",
+									"description": "File format. Either kmz, shp, tiff, url, html",
+									"type": "text"
+								},
+								{
+									"key": "green",
+									"value": "-90",
+									"description": "Green threshold. For use only with custom RGB schema.",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "hbw",
+									"value": "0",
+									"description": "Horizontal beamwidth. For use only with pattern 0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ked",
+									"value": "0",
+									"description": "Knife edge diffraction. Enhances basic propagation models other than 1 (ITM).",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mod",
+									"value": "0",
+									"description": "Modulation code for BER. For use only with out=4",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nam",
+									"value": "DRAKES_ISLAND",
+									"description": "Friendly name ",
+									"type": "text"
+								},
+								{
+									"key": "net",
+									"value": "DEVON",
+									"description": "Network name. Use this to group sites together for quick meshing and 'best server' checks later on",
+									"type": "text"
+								},
+								{
+									"key": "nf",
+									"value": "-120",
+									"description": "Noise floor in dBm. For use only with BER out=4 to compute SNR levels",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "out",
+									"value": "2",
+									"description": "Measurement units. 1=Path Loss dB, 2=Received Power dBm, 3=Field strength dBuV/m",
+									"type": "text"
+								},
+								{
+									"key": "pol",
+									"value": "v",
+									"description": "Antenna polarisation. Either vertical 'v' or horizontal 'h'",
+									"type": "text"
+								},
+								{
+									"key": "red",
+									"value": "-60",
+									"description": "Red threshold. For use only with custom RGB schema",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "ter",
+									"value": "15",
+									"description": "Terrain conductivity code. 15 = Rolling farmland",
+									"type": "text"
+								},
+								{
+									"key": "tlt",
+									"value": "0",
+									"description": "Antenna tilt from horizon in degrees. Up to the sky is positive, down is negative.",
+									"type": "text"
+								},
+								{
+									"key": "vbw",
+									"value": "0",
+									"description": "Custom antenna vertical beamwidth in degrees. For use only with ant=0",
+									"type": "text"
+								},
+								{
+									"key": "col",
+									"value": "10",
+									"description": "Colour schema code. 1 = Cellular (5), 2=Red, 3=Green, 4=Blue,  5=Microwave(7), 7=Custom RGB, 8=Automatic by frequency, 10=Rainbow(24), 11=Green/Blue/Red, 13=Sub noise floor (10), 14=TV broadcasting (4)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cloudrf.com/API/area",
+							"protocol": "https",
+							"host": [
+								"cloudrf",
+								"com"
+							],
+							"path": [
+								"API",
+								"area"
+							]
+						},
+						"description": "Area coverage performs a circular sweep around a transmitter out to a user defined radius. It factors in system parameters, antenna patterns, environmental characteristics and terrain data to show a heatmap in customisable colours and units.\nEach successful API call is debited from your balance as one 'calculation'. A standard plan has 1000 calculations.\nTo use the API you must authenticate with a UID and KEY which you can find at https://cloudrf.com/my%20balance.\n\n![Area Coverage](https://cloudrf.com/files/area_demo.jpg \"Area coverage\")\n\n## Colours and thresholds ##\n\nThe colour schema used is defined by the col value. The default 'rainbow' scheme used in CloudRF is col=10. Advanced users can define their own red green and blue threshold levels with col=7.\nPixels will be red coloured when the signal is greater than n dBm and green when the signal is between the red limit and green limit and blue when the signal is less than green but higher than the receiver threshold. \nThe range of colours and levels shown is limited by the receiver threshold. If you use the rainbow schema but have a high receiver threshold of -70dBm you will not see any blue shades for example. If you have it set too low at -120dBm you will receive an overly optimistic result. -80 to -90 dBm is recommended as a practical limit for most systems.\n\n# Process a spreadsheet\nUse [this python script](https://github.com/Cloud-RF/CloudRF-API-clients/blob/master/python/area.py) to process [a spreadsheet of data](https://github.com/Cloud-RF/CloudRF-API-clients/blob/master/python/area.csv)."
+					},
+					"response": [
+						{
+							"name": "Area Coverage with KMZ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uid",
+											"value": "21531",
+											"type": "text"
+										},
+										{
+											"key": "key",
+											"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "50.355108",
+											"type": "text"
+										},
+										{
+											"key": "lon",
+											"value": "-4.152938",
+											"type": "text"
+										},
+										{
+											"key": "txh",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "frq",
+											"value": "868",
+											"type": "text"
+										},
+										{
+											"key": "rxh",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "dis",
+											"value": "m",
+											"type": "text"
+										},
+										{
+											"key": "txw",
+											"value": "0.1",
+											"type": "text"
+										},
+										{
+											"key": "aeg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "rxg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "pm",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "pe",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "res",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "rad",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "out",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "rxs",
+											"value": "-95",
+											"type": "text"
+										},
+										{
+											"key": "ant",
+											"value": "38",
+											"type": "text"
+										},
+										{
+											"key": "azi",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "bw",
+											"value": "0.1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "ber",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "blue",
+											"value": "-120",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "clh",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "cli",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "cll",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "fbr",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "file",
+											"value": "kmz",
+											"type": "text"
+										},
+										{
+											"key": "green",
+											"value": "-90",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "hbw",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "ked",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "mod",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nam",
+											"value": "DRAKES_ISLAND",
+											"type": "text"
+										},
+										{
+											"key": "net",
+											"value": "DEVON",
+											"type": "text"
+										},
+										{
+											"key": "nf",
+											"value": "-120",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "out",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "pol",
+											"value": "v",
+											"type": "text"
+										},
+										{
+											"key": "red",
+											"value": "-60",
+											"type": "text"
+										},
+										{
+											"key": "ter",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "tlt",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "vbw",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "col",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://cloudrf.com/API/area",
+									"protocol": "https",
+									"host": [
+										"cloudrf",
+										"com"
+									],
+									"path": [
+										"API",
+										"area"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2018 17:30:45 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "cloudrf.com",
+									"path": "/",
+									"secure": false,
+									"value": "lnc0ohp580p208ommn2c39f4f5",
+									"key": "PHPSESSID"
+								}
+							],
+							"body": "{\n\"kmz\": \"https://cloudrf.com/API/archive/data.php?file=0124173038_Tower_3&uid=21531&fmt=kmz\",\n\"PNG_WGS84\": \"https://cloudrf.com/users/21531/0124173038_Tower_3.4326.png\",\n\"PNG_Mercator\": \"https://cloudrf.com/users/21531/0124173038_Tower_3.png\",\n\"bounds\": [52.090713,-0.853123,51.909287,-1.146877],\n\"id\": 987878,\n\"area\": \"11.324 km2\",\n\"elapsed\": 7,\n\"balance\": \"10 calculations left\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Path Profile Analysis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "21531",
+									"description": "Unique user identifier. Your CloudRF account id number.",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+									"description": "API key",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "10.0",
+									"description": "Latitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "lon",
+									"value": "10.0",
+									"description": "Longitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "txh",
+									"value": "1",
+									"description": "Transmitter height above ground",
+									"type": "text"
+								},
+								{
+									"key": "frq",
+									"value": "446",
+									"description": "Frequency in MHz. Allowed values: 20 to 100,000",
+									"type": "text"
+								},
+								{
+									"key": "rlat",
+									"value": "10.0",
+									"description": "Receiver Latitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "rlon",
+									"value": "10.1",
+									"description": "Receiver Longitude in decimal degrees",
+									"type": "text"
+								},
+								{
+									"key": "rxh",
+									"value": "1",
+									"description": "Receiver height in metres or feet",
+									"type": "text"
+								},
+								{
+									"key": "dis",
+									"value": "m",
+									"description": "Distance units. m = metres/km, f = feet/Mi",
+									"type": "text"
+								},
+								{
+									"key": "txw",
+									"value": "0.1",
+									"description": "Transmitter RF power in Watts",
+									"type": "text"
+								},
+								{
+									"key": "txg",
+									"value": "2.14",
+									"description": "Transmitter antenna gain in dBi",
+									"type": "text"
+								},
+								{
+									"key": "rxg",
+									"value": "2.14",
+									"description": "Receiver antenna gain in dBi",
+									"type": "text"
+								},
+								{
+									"key": "pm",
+									"value": "1",
+									"description": "Propagation model. 1=Irregular Terrain Model, 2=Line of Sight (LOS), 3=Hata, 4=ECC33, 5=SUI Microwave, 6=COST231, 7=Free space path loss, 8=ITWOM, 9=Ericsson9999, 10=Plane earth loss, 11=Egli\n",
+									"type": "text"
+								},
+								{
+									"key": "pe",
+									"value": "1",
+									"description": "Propagation model subtype for Hata,ECC33,SUI,COST231,Ericsson. 1=Conservative, 2=Average or 3=Optimistic.",
+									"type": "text"
+								},
+								{
+									"key": "res",
+									"value": "90",
+									"description": "Resolution. 30=30m (Global), 90=90m (Global), 1=LIDAR 100%, 2=LIDAR 50% (LIDAR coverage permitting)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cloudrf.com/API/path",
+							"protocol": "https",
+							"host": [
+								"cloudrf",
+								"com"
+							],
+							"path": [
+								"API",
+								"path"
+							]
+						},
+						"description": "Path Profile Analysis (PPA) is a point-to-point study from A to B. It factors in system parameters and terrain data to show a profile chart and text report.\nEach succesfful API call is debited from your balance as one 'calculation'. A standard plan has 1000 calculations.\nTo use the API you must authenticate with a UID and KEY which you can find at cloudrf.com/my balance.\n\nAntenna patterns and other Area Coverage parameters still apply. You can find the parameters in the area API.\n\n![Path Profile Analysis](https://cloudrf.com/files/ppa_demo.png \"Path Profile Analysis\")\n\n# Process a spreadsheet\nUse [this python script](https://github.com/Cloud-RF/CloudRF-API-clients/blob/master/python/pathprofile.py) to process [a spreadsheet of data](https://github.com/Cloud-RF/CloudRF-API-clients/blob/master/python/pathprofile.csv)."
+					},
+					"response": [
+						{
+							"name": "Path Profile Analysis obstructed demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uid",
+											"value": "21531",
+											"type": "text"
+										},
+										{
+											"key": "key",
+											"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "52.1",
+											"type": "text"
+										},
+										{
+											"key": "lon",
+											"value": "-1.2",
+											"type": "text"
+										},
+										{
+											"key": "txh",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "frq",
+											"value": "446",
+											"type": "text"
+										},
+										{
+											"key": "rlat",
+											"value": "52.1",
+											"type": "text"
+										},
+										{
+											"key": "rlon",
+											"value": "-1.1",
+											"type": "text"
+										},
+										{
+											"key": "rxh",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "dis",
+											"value": "m",
+											"type": "text"
+										},
+										{
+											"key": "txw",
+											"value": "0.1",
+											"type": "text"
+										},
+										{
+											"key": "txg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "rxg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "pm",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "pe",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "res",
+											"value": "90",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://cloudrf.com/API/path",
+									"protocol": "https",
+									"host": [
+										"cloudrf",
+										"com"
+									],
+									"path": [
+										"API",
+										"path"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2018 19:29:22 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "cloudrf.com",
+									"path": "/",
+									"secure": false,
+									"value": "lnc0ohp580p208ommn2c39f4f5",
+									"key": "PHPSESSID"
+								}
+							],
+							"body": "{\n\"report\": \"https://cloudrf.com/users/21531/0124192921_PPA.txt\",\n\"chart\": \"https://cloudrf.com/users/21531/0124192921_PPA.png\",\n\"distanceKM\": 6.83,\n\"azimuth-Rx\": 89.96,\n\"downtilt-Rx\": \"-0.3159\",\n\"azimuth-Tx\": 270.04,\n\"downtilt-Tx\": \"+0.2545\",\n\"freespaceLoss\": 102.14,\n\"terrainAttenuation\": 28.61,\n\"pathloss_dB\": 130.76,\n\"received_dBm\": -110.76,\n\"fieldstrength_dBuv\": 19.48,\n\"obstructed\": 1\n}"
+						},
+						{
+							"name": "Path Profile Analysis  demo1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uid",
+											"value": "21531",
+											"type": "text"
+										},
+										{
+											"key": "key",
+											"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "50.3",
+											"type": "text"
+										},
+										{
+											"key": "lon",
+											"value": "-4.5",
+											"type": "text"
+										},
+										{
+											"key": "txh",
+											"value": "12",
+											"type": "text"
+										},
+										{
+											"key": "frq",
+											"value": "446",
+											"type": "text"
+										},
+										{
+											"key": "rlat",
+											"value": "50.38",
+											"type": "text"
+										},
+										{
+											"key": "rlon",
+											"value": "-4.61",
+											"type": "text"
+										},
+										{
+											"key": "rxh",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "dis",
+											"value": "m",
+											"type": "text"
+										},
+										{
+											"key": "txw",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "txg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "rxg",
+											"value": "2.14",
+											"type": "text"
+										},
+										{
+											"key": "pm",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "pe",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "res",
+											"value": "90",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://cloudrf.com/API/path",
+									"protocol": "https",
+									"host": [
+										"cloudrf",
+										"com"
+									],
+									"path": [
+										"API",
+										"path"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": ""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-store, no-cache, must-revalidate",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2018 19:16:12 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Expires",
+									"value": "Thu, 19 Nov 1981 08:52:00 GMT",
+									"name": "Expires",
+									"description": ""
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache",
+									"name": "Pragma",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "cloudrf.com",
+									"path": "/",
+									"secure": false,
+									"value": "lnc0ohp580p208ommn2c39f4f5",
+									"key": "PHPSESSID"
+								}
+							],
+							"body": "{\n\"report\": \"https://cloudrf.com/users/21531/0124191611_PPA.txt\",\n\"chart\": \"https://cloudrf.com/users/21531/0124191611_PPA.png\",\n\"distanceKM\": 10.95,\n\"azimuth-Rx\": 89.99,\n\"downtilt-Rx\": \"+0.3432\",\n\"azimuth-Tx\": 270.01,\n\"downtilt-Tx\": \"-0.4416\",\n\"freespaceLoss\": 106.24,\n\"terrainAttenuation\": 35.41,\n\"pathloss_dB\": 141.65,\n\"received_dBm\": -121.65,\n\"fieldstrength_dBuv\": 8.59,\n\"obstructed\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Mesh sites",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "21531",
+									"type": "text"
+								},
+								{
+									"key": "network",
+									"value": "Testing",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "supermesh",
+									"type": "text"
+								},
+								{
+									"key": "kmz",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cloudrf.com/API/mesh/",
+							"protocol": "https",
+							"host": [
+								"cloudrf",
+								"com"
+							],
+							"path": [
+								"API",
+								"mesh",
+								""
+							]
+						},
+						"description": "Merge different sites into a super layer. Overlapping colours are automatically resolved and the strongest promoted.\nPlease be patient as geo-rectifying and re-aligning thousands of pixels from different, sometimes large, images can take a wee while. \n\n![Mesh Coverage](https://cloudrf.com/files/mesh_demo.jpg \"Mesh coverage\")\n\n# Method 1 - Network name\n\nPass the name of the network you would like to mesh with the 'network=' parameter.\n/?uid=1234&network=emergency_network\n\n# Method 2 - Site names\n\nPass the names of the sites you would like to mesh with the 'calcs=' parameter\n/?uid=1234&calcs=1512111201_repeater1,1512111202_repeater2,1512111203_repeater3\n\n# Common errors\n\nSites with different resolutions eg. 1200/3600. All must use the same.\nSites that are more than 15 degrees (lat/lon) apart\nUsing less than 2 sites. Must be a minimum of two.\nMixing colour schemas eg. Rainbow/reds. All must use the same."
+					},
+					"response": [
+						{
+							"name": "Mesh sites ERROR",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uid",
+											"value": "21531",
+											"type": "text"
+										},
+										{
+											"key": "network",
+											"value": "Testing",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "supermesh",
+											"type": "text"
+										},
+										{
+											"key": "kmz",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://cloudrf.com/API/mesh/",
+									"protocol": "https",
+									"host": [
+										"cloudrf",
+										"com"
+									],
+									"path": [
+										"API",
+										"mesh",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2018 19:23:54 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "cloudrf.com",
+									"path": "/",
+									"secure": false,
+									"value": "lnc0ohp580p208ommn2c39f4f5",
+									"key": "PHPSESSID"
+								}
+							],
+							"body": "Not meshing 4! Your current plan only allows for 3 sites to be meshed together. Please upgrade"
+						}
+					]
+				},
+				{
+					"name": "Best server",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "uid",
+									"value": "21531",
+									"description": "Unique user identifier. Your CloudRF account id number.",
+									"type": "text"
+								},
+								{
+									"key": "key",
+									"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+									"description": "API key",
+									"type": "text"
+								},
+								{
+									"key": "net",
+									"value": "SUPERNET",
+									"description": "Network you would like to test for coverage with. This must already exist with at least 2 sites.",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "52.0",
+									"description": "Latitude in decimal degrees of receiver / customer",
+									"type": "text"
+								},
+								{
+									"key": "lon",
+									"value": "-1.05",
+									"description": "Longitude in decimal degrees of receiver / customer",
+									"type": "text"
+								},
+								{
+									"key": "rxh",
+									"value": "10",
+									"description": "Receiver height in metres above ground level",
+									"type": "text"
+								},
+								{
+									"key": "rxg",
+									"value": "9",
+									"description": "Receiver gain in dBi",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://cloudrf.com/API/network/",
+							"protocol": "https",
+							"host": [
+								"cloudrf",
+								"com"
+							],
+							"path": [
+								"API",
+								"network",
+								""
+							]
+						},
+						"description": "Query your networks to find the best server for a customer. A CloudRF account and previously generated area coverage calculations are necessary to use the best server functionality. Currently returns comma separated text.\n\nA Python example client is here: https://github.com/Cloud-RF/CloudRF-API-clients/blob/master/python/bestserver.py"
+					},
+					"response": [
+						{
+							"name": "Best server fail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uid",
+											"value": "21531",
+											"description": "Unique user identifier. Your CloudRF account id number.",
+											"type": "text"
+										},
+										{
+											"key": "key",
+											"value": "a8ec44b5ad85e0ab626e55f20e3cb5da111999a2",
+											"description": "API key",
+											"type": "text"
+										},
+										{
+											"key": "net",
+											"value": "SUPERNET",
+											"description": "Network you would like to test for coverage with. This must already exist with at least 2 sites.",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "52.0",
+											"description": "Latitude in decimal degrees of receiver / customer",
+											"type": "text"
+										},
+										{
+											"key": "lon",
+											"value": "-1.05",
+											"description": "Longitude in decimal degrees of receiver / customer",
+											"type": "text"
+										},
+										{
+											"key": "rxh",
+											"value": "10",
+											"description": "Receiver height in metres above ground level",
+											"type": "text"
+										},
+										{
+											"key": "rxg",
+											"value": "9",
+											"description": "Receiver gain in dBi",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://cloudrf.com/API/network/",
+									"protocol": "https",
+									"host": [
+										"cloudrf",
+										"com"
+									],
+									"path": [
+										"API",
+										"network",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip",
+									"name": "Content-Encoding",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2018 19:36:46 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "nginx",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"name": "Transfer-Encoding",
+									"description": ""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN",
+									"name": "X-Frame-Options",
+									"description": ""
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"httpOnly": false,
+									"domain": "cloudrf.com",
+									"path": "/",
+									"secure": false,
+									"value": "lnc0ohp580p208ommn2c39f4f5",
+									"key": "PHPSESSID"
+								}
+							],
+							"body": "0124090252_Tower_3,132.9,-inf\n0124091452_Tower_3,132.9,-inf\n0124000846_Tower_3,132.9,-inf\n0124000311_Tower_3,132.9,-inf\n0124080917_Tower_3,132.9,-inf\n"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "View and Delete",
+			"item": [],
+			"description": "The following instructions are for automated operations. You can do it manually over at your archive.\n\n# View\n\nThere are several ways to access your data using either the unique calculation number or the unique calculation name. A calculation name contains the site name and owner's UID whereas a calculation number is anonymous.\n\n## View by calculation number (anonymous)\n\nFor API users, you can request the calculation number for every calculation by setting the 'fmt' output field to 4 which will provide you with a KMZ URL and a calculation number. With this number you can view the calculation like so: https://cloudrf.com/API/archive/calc.php?id=589844\n\n## View by calculation name\n\nThe unique calculation name is available after every API call. Using this and your own unique identity number (UID) you can download it directly either as a PNG image or KMZ layer. You can see your UID when you login at cloudrf.com or when you download a KMZ.\n\nhttps://cloudrf.com/users/1/1207224440_Tx.kmz\n\nhttps://cloudrf.com/users/1/1207224440_Tx.png\n\n# Delete\n\n## Delete by number\n\nTo delete a calculation you need to know your UID and the calculation name. You can call the delete URL after you have logged in to your archive like so:\n\nhttps://cloudrf.com/API/archive/data.php?uid=1&cid=377563&del=1\n\n## Delete by name\n\nTo delete a calculation you need to know your UID and the calculation name. You can call the delete URL after you have logged in to your archive like so. If you are scripting this you will need to pass your email and password as BASIC authentication.\n\nhttps://cloudrf.com/API/archive/index.php?uid=1&delete=1203214226_Tx\n\n## Deleted the wrong file?\n\nAll calculations are backed up off-site every 3 hours and kept for 12 months. If a file is accidentally deleted it can be recovered with a nice email to support.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
