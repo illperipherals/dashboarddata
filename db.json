@@ -1,25 +1,6 @@
 {
     "hotspots": [
         {
-            "address": "11GJqEnX8Xkd1nNvKqdYiECUgXbWL6vf4VYPBdVvMRijRGi9Rz1",
-            "id": 1593,
-            "lat": null,
-            "lng": null,
-            "location": null,
-            "long_city": null,
-            "long_country": null,
-            "long_state": null,
-            "long_street": null,
-            "name": "Mythical Tiger Bee",
-            "owner": "14GbaLxFaFhnyC5x9uYrMv8ywa5g2PogMog93eHBzZpgUtv6HEo",
-            "score": 0.25,
-            "score_update_height": 120973,
-            "short_city": null,
-            "short_country": null,
-            "short_state": null,
-            "short_street": null
-        },
-        {
             "address": "1121gDYyQD9UAqXdz7ocJY4vnjKByCHH68gXzGUJNHjoBevGFVTj",
             "id": 1592,
             "lat": 40.79729652022415,
@@ -114,24 +95,5 @@
             "short_state": "TX",
             "short_street": "Turnberry Ct"
         },
-        {
-            "address": "11nNfh3NeT9n2n7EAYeHXLBaUjggqyHFz5RaHhH6Ahwe1LL89kW",
-            "id": 1587,
-            "lat": null,
-            "lng": null,
-            "location": null,
-            "long_city": null,
-            "long_country": null,
-            "long_state": null,
-            "long_street": null,
-            "name": "Glamorous Foggy Eagle",
-            "owner": "13Wjb3U16ct477Qixg45nWEtRh4Jg2qTp2iuqgD2Adk8gQmF8Bo",
-            "score": 0.25,
-            "score_update_height": 120973,
-            "short_city": null,
-            "short_country": null,
-            "short_state": null,
-            "short_street": null
-        }
     ]
 }
