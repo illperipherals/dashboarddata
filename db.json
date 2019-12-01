@@ -98,23 +98,15 @@
     ],
         "accounts": [
             {
-                "address": "1121gDYyQD9UAqXdz7ocJY4vnjKByCHH68gXzGUJNHjoBevGFVTj",
-                "id": 1592,
-                "lat": 40.79729652022415,
-                "lng": -74.47753895715147,
-                "location": "8c2a104d86229ff",
-                "long_city": "Morristown",
-                "long_country": "United States",
-                "long_state": "New Jersey",
-                "long_street": "Morris Street",
-                "name": "Immense Dijon Cougar",
-                "owner": "13yJMDy3seZyCouuRCwfqUXZGzjciMzdVVBLYqKgMSBZDZyFQYC",
-                "score": 0.25,
-                "score_update_height": 120973,
-                "short_city": "Morristown",
-                "short_country": "US",
-                "short_state": "NJ",
-                "short_street": "Morris St"
-            }
+                "address": "146pM8yafJBZKMmsuvy5FVpCLFVSufLdwYdogA6ym1VEtUVN8GG",
+                "balance": 41145948910,
+                "data_credit_balance": 0,
+                "fee": 0,
+                "id": 910,
+                "name": null,
+                "nonce": 0,
+                "security_balance": 0,
+                "security_nonce": 0
+            },
         ]
 }
